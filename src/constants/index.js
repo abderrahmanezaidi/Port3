@@ -1,4 +1,4 @@
-import logoesaip from '../assets/images/logoesaip.png'; // Adjust the path based on your file structure
+import logoesaip from '../assets/images/logoesaip.png'; 
 import seamklogo from '../assets/images/seamklogo.png';
 import emsilogo from '../assets/images/emsilogo.webp';
 import ofpptlogo from '../assets/images/ofpptlogo.webp'
@@ -91,7 +91,7 @@ export const skills = [
     },
     {
         imageUrl: threejs,
-        name: "ThreeJs",
+        name: "Three.js",  // Fixed typo: "ThreeJs" to "Three.js"
         type: "Frontend",
     },
     {
@@ -146,15 +146,14 @@ export const skills = [
     },
     {
         imageUrl: cplus,
-        name: "c+++",
-        type: "backend",
+        name: "C++",  // Corrected name to "C++"
+        type: "Backend",
     },
     {
         imageUrl: javalogo,
-        name: "c+++",
-        type: "backend",
+        name: "Java",  // Corrected name to "Java"
+        type: "Backend",
     },
-    
     {
         imageUrl: git,
         name: "Git",
@@ -167,7 +166,7 @@ export const skills = [
     },
     {
         imageUrl: gitbash,
-        name: "Gitbash",
+        name: "Git Bash",  // Fixed naming for consistency
         type: "Version Control",
     },
     {
@@ -177,12 +176,12 @@ export const skills = [
     },
     {
         imageUrl: cisco,
-        name: "CISCO",
+        name: "Cisco",  // Fixed casing for consistency
         type: "Networking",
     },
     {
         imageUrl: wds,
-        name: "Windows server",
+        name: "Windows Server",  // Fixed casing for consistency
         type: "Networking",
     },
     {
@@ -190,9 +189,8 @@ export const skills = [
         name: "Unix",
         type: "Networking",
     },
-    
-
 ];
+
 
 export const experiences = [
     {
@@ -236,6 +234,28 @@ export const experiences = [
             "During this observation internship, I gained valuable insights into the inner workings of internships, with a specific focus on management practices and the tools commonly employed. This experience provided me with a comprehensive understanding of how to manage projects and collaborate effectively within a team. In addition, I contributed to a web application development project, which further enhanced my technical skills and broadened my practical knowledge in a professional setting.   ",
         ],
     },
+];
+export const associativeExperiences = [
+    {
+        title: "President of chess club ",
+        association_name: "",
+        iconBg: "#e0f7fa",
+        date: "2024 - 2025",
+        points: [
+            "As President of the Chess Club within the school's association, I led the chess office as part of our larger student organization. My role involved managing the club’s activities, representing the club at association meetings, and collaborating with other offices to integrate chess-related events into the broader student community. I was responsible for organizing internal and inter-school tournaments, hosting training sessions, and coordinating events that promoted strategic thinking and problem-solving through chess. Additionally, I worked closely with other association members to secure resources, promote the club to new students, and foster an inclusive environment where chess enthusiasts of all levels could participate. This experience enhanced my leadership, organizational, and communication skills within a collaborative association setting."
+        ],
+    },
+    {
+        title: "Volunteer Coordinator",
+        association_name: "Youth for Change",
+        iconBg: "#e0f7fa",
+        date: " JAN 2024 - FAB 2024",
+        points: [
+            "I dedicated time to helping younger students with their schoolwork, providing guidance in subjects like math, science, and reading. I also participated in organizing and facilitating associative activities such as music, art, and cultural events, working with other volunteers to create engaging and educational experiences for the students. This involvement allowed me to support children’s academic growth and encourage their creative development, all while building teamwork, leadership, and community engagement skills."
+        ],
+    },
+   
+    
 ];
 
 export const socialLinks = [

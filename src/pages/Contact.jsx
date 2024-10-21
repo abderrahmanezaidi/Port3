@@ -1,10 +1,11 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
-
 import { Fox } from "../models";
 import useAlert from "../hooks/useAlert";
 import { Alert, Loader } from "../components";
+import linkedinQR from "../assets/images/linkedin-qr.png"; // Adjust the path to your images
+import githubQR from "../assets/images/github-qr.png"; // Adjust the path to your images
 
 const Contact = () => {
   const formRef = useRef();
@@ -55,7 +56,7 @@ const Contact = () => {
               email: "",
               message: "",
             });
-          }, [3000]);
+          }, 3000);
         },
         (error) => {
           setLoading(false);
@@ -72,101 +73,122 @@ const Contact = () => {
   };
 
   return (
-    <section className='relative flex lg:flex-row flex-col max-container'>
-      {alert.show && <Alert {...alert} />}
+    <>
+      <section className="relative flex lg:flex-row flex-col max-container">
+        {alert.show && <Alert {...alert} />}
 
-      <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='head-text'>Get in Touch</h1>
+        <div className="flex-1 min-w-[50%] flex flex-col">
+          <h1 className="head-text">Get in Touch</h1>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='w-full flex flex-col gap-7 mt-14'
-        >
-          <label className='text-black-500 font-semibold'>
-            Name
-            <input
-              type='text'
-              name='name'
-              className='input'
-              placeholder='Zaidi'
-              required
-              value={form.name}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-          <label className='text-black-500 font-semibold'>
-            Email
-            <input
-              type='email'
-              name='email'
-              className='input'
-              placeholder='zabderahmane97@gmail.com'
-              required
-              value={form.email}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-          <label className='text-black-500 font-semibold'>
-            Your Message
-            <textarea
-              name='message'
-              rows='4'
-              className='textarea'
-              placeholder='Write your thoughts here...'
-              value={form.message}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </label>
-
-          <button
-            type='submit'
-            disabled={loading}
-            className='btn'
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="w-full flex flex-col gap-7 mt-14"
           >
-            {loading ? "Sending..." : "Submit"}
-          </button>
-        </form>
-      </div>
+            <label className="text-black-500 font-semibold">
+              Name
+              <input
+                type="text"
+                name="name"
+                className="input"
+                placeholder="Zaidi"
+                required
+                value={form.name}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                autoComplete="name" // Added autocomplete attribute
+              />
+            </label>
+            <label className="text-black-500 font-semibold">
+              Email
+              <input
+                type="email"
+                name="email"
+                className="input"
+                placeholder="zabderahmane97@gmail.com"
+                required
+                value={form.email}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                autoComplete="email" // Added autocomplete attribute
+              />
+            </label>
+            <label className="text-black-500 font-semibold">
+              Your Message
+              <textarea
+                name="message"
+                rows="4"
+                className="textarea"
+                placeholder="Write your thoughts here..."
+                value={form.message}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                autoComplete="off" // Optional: can be added for textarea
+              />
+            </label>
 
-      <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
-        <Canvas
-          camera={{
-            position: [0, 0, 5],
-            fov: 75,
-            near: 0.1,
-            far: 1000,
-          }}
-        >
-          <directionalLight position={[0, 0, 1]} intensity={2.5} />
-          <ambientLight intensity={1} />
-          <pointLight position={[5, 10, 0]} intensity={2} />
-          <spotLight
-            position={[10, 10, 10]}
-            angle={0.15}
-            penumbra={1}
-            intensity={2}
-          />
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn"
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            >
+              {loading ? "Sending..." : "Submit"}
+            </button>
+          </form>
+        </div>
 
-          <Suspense fallback={<Loader />}>
-            <Fox
-              currentAnimation={currentAnimation}
-              position={[0.5, 0.35, 0]}
-              rotation={[12.629, -0.6, 0]}
-              scale={[0.5, 0.5, 0.5]}
+        <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]">
+          <Canvas
+            camera={{
+              position: [0, 0, 5],
+              fov: 75,
+              near: 0.1,
+              far: 1000,
+            }}
+          >
+            <directionalLight position={[0, 0, 1]} intensity={2.5} />
+            <ambientLight intensity={1} />
+            <pointLight position={[5, 10, 0]} intensity={2} />
+            <spotLight
+              position={[10, 10, 10]}
+              angle={0.15}
+              penumbra={1}
+              intensity={2}
             />
-          </Suspense>
-        </Canvas>
-      </div>
-    </section>
+
+            <Suspense fallback={<Loader />}>
+              <Fox
+                currentAnimation={currentAnimation}
+                position={[0.5, 0.35, 0]}
+                rotation={[12.629, -0.6, 0]}
+                scale={[0.5, 0.5, 0.5]}
+              />
+            </Suspense>
+          </Canvas>
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer className='border-slate-200'>
+        <div className="flex flex-col items-center">
+          <div className="flex space-x-10 mt-5">
+            <div className="flex flex-col items-center">
+              <img src={linkedinQR} alt="LinkedIn QR" className="w-32 h-32" />
+              <p className="text-black-500 font-semibold">LinkedIn</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src={githubQR} alt="GitHub QR" className="w-32 h-32" />
+              <p className="text-black-500 font-semibold">GitHub</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 
